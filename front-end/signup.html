@@ -8,18 +8,40 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="auth-page">
+
+
+
+  <script>
+    function signup() {
+      fetch("http://localhost/winnies_garden_backend/signup.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: "Winnie",
+          email: "winnie@example.com",
+          password: "123456",
+          confirmPassword: "123456"
+        })
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error("Error:", error));
+    }
+  </script>
   <div class="auth-container">
     <img src="wino.avif" alt="Winnie's Logo" class="logo"/>
     <h2>Create an Account</h2>
     <p>Join Winnie’s Garden and help your child bloom!</p>
 
-    <form id="signup-form">
-      <input type="text" name="name" placeholder="Full Name" required />
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="password" name="password" placeholder="Password" required />
-      <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
+    <form action="http://localhost/winnies_garden_backend/signup.php" method="POST">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
       <button type="submit">Sign Up</button>
     </form>
+    
 
     <p class="link">Already have an account? <a href="signin.html">Sign In</a></p>
   </div>
