@@ -1,14 +1,14 @@
-// Add a welcome message to the console
+
 console.log("Welcome to My Website!");
 
-// Example: Make the header change color when scrolled
+
 window.addEventListener("scroll", () => {
     const header = document.querySelector("header");
     header.style.backgroundColor = window.scrollY > 50 ? "#555" : "#333";
 });
 
 
-// SIGN UP
+
 document.querySelector("#signup-form")?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -26,7 +26,7 @@ document.querySelector("#signup-form")?.addEventListener("submit", async (e) => 
     alert(data.message);
   });
   
-  // SIGN IN
+  
   document.querySelector("#signin-form")?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const form = e.target;

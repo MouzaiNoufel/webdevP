@@ -1,11 +1,11 @@
 <?php
 include 'db.php';
 
-// Get raw JSON input
+
 $input = file_get_contents("php://input");
 $data = json_decode($input, true);
 
-// DEBUG: Output what PHP received
+
 if (!$data) {
     echo json_encode([
         "status" => "error",
@@ -15,13 +15,13 @@ if (!$data) {
     exit;
 }
 
-// Extract values safely
+
 $name = $data['name'] ?? null;
 $email = $data['email'] ?? null;
 $password = $data['password'] ?? null;
 $confirmPassword = $data['confirmPassword'] ?? null;
 
-// Check required fields
+
 if (!$name || !$email || !$password || !$confirmPassword) {
     echo json_encode([
         "status" => "error",
@@ -31,13 +31,13 @@ if (!$name || !$email || !$password || !$confirmPassword) {
     exit;
 }
 
-// Password match check
+
 if ($password !== $confirmPassword) {
     echo json_encode(["status" => "error", "message" => "Passwords do not match"]);
     exit;
 }
 
-// Check if user exists
+
 $check = $conn->prepare("SELECT * FROM users WHERE email = ?");
 $check->bind_param("s", $email);
 $check->execute();
@@ -48,7 +48,7 @@ if ($checkResult->num_rows > 0) {
     exit;
 }
 
-// Register the user
+
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
 $stmt->bind_param("sss", $name, $email, $hashedPassword);
