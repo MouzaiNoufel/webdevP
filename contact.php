@@ -17,7 +17,7 @@ $stmt = $conn->prepare("INSERT INTO messages (name, email, message) VALUES (?, ?
 $stmt->bind_param("sss", $name, $email, $message);
 
 if ($stmt->execute()) {
-    echo json_encode(["status" => "success", "message" => "Message sent successfully!"]);
+    echo json_encode(["status" => "success", "message" => "Message dyalek l7a9na! merci "]);
 } else {
     echo json_encode(["status" => "error", "message" => "Failed to send message"]);
 }

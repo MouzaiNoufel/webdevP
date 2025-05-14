@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Messages - Winnie's Garden</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-page">
+  <div class="auth-container">
+    <h2>Messages Received</h2>
+    <div id="messages"></div>
+  </div>
+
+  <script>
+    fetch("http://localhost/winnies_garden/admin_messages.php")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("messages");
+        if (data.status === "success") {
+          data.messages.forEach(msg => {
+            container.innerHTML += `
+              <div class="message-card">
+                <strong>${msg.name}</strong> (${msg.email})<br/>
+                <em>${msg.created_at}</em>
+                <p>${msg.message}</p>
+                <hr/>
+              </div>
+            `;
+          });
+        } else {
+          container.innerText = "Failed to load messages.";
+        }
+      });
+  </script>
+</body>
+</html>
