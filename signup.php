@@ -1,7 +1,5 @@
 <?php
 include 'db.php';
-session_start();
-header("Content-Type: application/json");
 
 
 $input = file_get_contents("php://input");
@@ -52,25 +50,11 @@ if ($checkResult->num_rows > 0) {
 
 
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-$created_at = date("Y-m-d H:i:s");
-
-
-$stmt = $conn->prepare("INSERT INTO users (name, email, password, created_at) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssss", $name, $email, $hashedPassword, $created_at);
+$stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $name, $email, $hashedPassword);
 
 if ($stmt->execute()) {
-    
-    $_SESSION['user'] = [
-        "name" => $name,
-        "email" => $email,
-        "created_at" => $created_at
-    ];
-
-    echo json_encode([
-        "status" => "success",
-        "message" => "User registered successfully",
-        "user" => $_SESSION['user']
-    ]);
+    echo json_encode(["status" => "success", "message" => "User registered successfully"]);
 } else {
     echo json_encode(["status" => "error", "message" => "Registration failed"]);
 }

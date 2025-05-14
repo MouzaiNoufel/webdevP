@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -98,101 +97,6 @@ nav ul li a:hover {
 nav ul li a:hover {
     background: linear-gradient(45deg, #f7da5a, #ffdf42);  
 }
-
-.welcome-title {
-    text-align: center;                      
-    margin-top: 10px;                        
-    background-color: #fff9d7;              
-    padding: 10px;                          
-   
-}
-
-.welcome-title h1 {
-    font-family: 'Comic Sans MS', cursive, sans-serif;  
-    font-size: 27px;                      
-    color: #000000;                        
-    text-shadow: 2px 2px #f1ba54;          
-}
-
-.p1 {
-    font-size: 17px; 
-    color: #f1ba54;                       
-  
-}
-
-#hero {
-    background-color: #fff9d7; 
-    font-family: 'Comic Sans MS', cursive, sans-serif;  
-    font-size: 20px;                       
-    color: #000000;                        
-    text-shadow: 2px 2px #f1ba54;          
-    padding: 10px 20px;
-  
-}
-#hero2 {
-    background-color: #fff9d7;
-    font-family: 'Comic Sans MS', cursive, sans-serif;  
-    color: #000000;
-    text-shadow: 0px 0px ;
-}
-
-section {
-    padding: 20px;
-    margin: 20px;
-    background-color: white;
-    border-radius: 8px;
-}
-.hero-container {
-    display: flex;                      
-    justify-content: space-between;     
-    align-items: center;                
-    padding: 20px;
-    background-color: #fff9d7;       
-}
-
-.hero-text {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    font-size: 20px;                   
-    color: #000000;                     
-    text-shadow: 0px 0px #000000;       
-    line-height: 1.5;                  
-    flex: 2;                           
-}
-
-.hero-image {
-    max-width: 200px;                   
-    height: auto;                       
-    margin-left: 20px;                  
-}
-
-.center-address {
-    text-align: center;                      
-    margin-top: 20px;                        
-    font-family: 'Comic Sans MS', cursive, sans-serif; 
-    font-size: 18px;                        
-    color: #f1ba54;                         
-    background-color: #fff9d7;          
-    padding: 10px;                           
-    border-radius: 5px;                   
-    text-shadow: 1px 1px #000;               
-    width: fit-content;                     
-    margin: 20px auto;                       
-}
-
-.center-address a {
-    text-decoration: none;                  
-    color: #ff5722;                         
-    font-weight: bold;                      
-    transition: color 0.3s ease;             
-}
-
-.center-address a:hover {
-    color: #ff0d0d;                         
-}
-
-
-
-
 .footer {
     display: flex;
     justify-content: space-between;
@@ -223,6 +127,7 @@ section {
     border: none;
     border-radius: 20px;
     width: 180px;
+    color: #fff1bc;
   }
   
   .search-btn {
@@ -280,6 +185,7 @@ section {
     background-color: #fff2b8;
     padding: 40px;
     font-family: 'Arial', sans-serif;
+    
   }
   
   .footer-left, .footer-center, .footer-contact, .footer-socials {
@@ -349,7 +255,12 @@ section {
     color: #f2b32c;
     cursor: pointer;
   }
-  
+  .social-icons img{
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+
+  }
   .footer-bottom {
     text-align: center;
     padding: 20px;
@@ -429,15 +340,78 @@ section {
     margin-top: 1rem;
     font-size: 0.9rem;
   }
-   .social-icons img{
-    width: 30px;
-    height: 30px;
-    margin-right: 15px;
-
-  }
- .social-icons img{
-    width: 30px;
-    height: 30px;
-    margin-right: 15px;
-
-  }
+  .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .service-card {
+            background-color: #ecbf4b;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        .service-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+        .service-card h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #f9f6f4;
+        }
+        .service-card p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #000000;
+        }
+        .cta {
+            text-align: center;
+            position: relative;
+            top: 100px;
+        }
+        .cta a, .back-link a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+            background-color: #e7c274;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        .cta a:hover, .back-link a:hover {
+            background-color: #f8f8f8;
+            text-decoration: underline;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+       main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 700px;
+       }
+       .buttons{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+       }

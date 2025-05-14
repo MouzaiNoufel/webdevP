@@ -1,5 +1,6 @@
 <?php
-include 'db.php'; 
+include 'db.php'; // Ce fichier doit contenir la connexion $conn
+
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -18,11 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()) {
         echo json_encode([
             'success' => true,
-            'message' => 'Message bien reçu !',
+            'message' => 'Message enregistré avec succès.',
             'data' => compact('name', 'email', 'message')
         ]);
     } else {
-        echo json_encode(['success' => false, 'message' => 'Erreur lors de l\'envoi.']);
+        echo json_encode(['success' => false, 'message' => 'Erreur lors de l\'enregistrement.']);
     }
 
     exit;

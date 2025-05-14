@@ -1,0 +1,26 @@
+a{
+    text-decoration: none;
+}
+body{
+    background-color: #FFFED0;
+}
+.navbar{
+    display: flex;
+    background-color: #FFFED0;
+    justify-content: space-between;
+    height: 200px;
+}
+img{
+    height: auto;
+    width: 60px;
+    margin-left:20px ;
+    position: absolute;
+    top: 10px;
+    flex: 2;
+}
+.navbar_links{
+    position: absolute;
+    right: 600px;
+    top: 25px;
+    display: 20px;
+}
