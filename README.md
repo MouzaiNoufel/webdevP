@@ -1,4 +1,6 @@
 # webdevP
 our webdev Project S4
 
-Naoufel Mouzai parts are : all of they contain the name : author "Your GitHub Username"
+Naoufel Mouzai parts are : all parts contain the name :"Your GitHub Username"
+
+Fatma Benmoussa parts are : all parts contain the name : "FatmaNIT"
