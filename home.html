@@ -11,6 +11,9 @@
     <header>
         <nav>
             <img src="wini.png"   alt="Logo" class="logo">
+
+            <div id="welcome-message" class="welcome"></div>
+
             <ul>
             
                 <li><a href="#">Home</a></li>
@@ -22,12 +25,15 @@
         </nav>
     </header>
 
+
   <section class="hero">
     <img src="poohv.png" height="300" width="700" alt="Pooh Group" class="hero-img" />
     
     <p class="slogan">Every Child Deserves to Bloom<br>Winnie winnie poom</p>
   </section>
-
+<center>
+  <button onclick="goToProfile()" class="profile-button">Mon Profil</button>
+</center>
   <section class="intro">
     <div class="intro-box">
       <p>
@@ -114,5 +120,28 @@
       <a href="#">Terms & Conditions</a>
     </p>
   </div>
+
+<script>
+  fetch("http://localhost/winnies_garden/profile.php")
+    .then(res => res.json())
+    .then(data => {
+      if (data.status === "success") {
+        document.getElementById("welcome-message").innerText = "Bonjour, " + data.user.name + " 👋";
+        document.getElementById("profile-btn").style.display = "inline-block";
+      } else {
+        document.getElementById("welcome-message").innerText = "Bienvenue Naoufel👋";
+      }
+    })
+    .catch(error => {
+      console.error("Erreur :", error);
+    });
+
+  function goToProfile() {
+    window.location.href = "profile.html";
+  }  
+</script>
+
+
+
 </body>
 </html>

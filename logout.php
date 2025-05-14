@@ -1,6 +1,5 @@
 <?php
 session_start();
 session_destroy();
-header("Location: signin.html");
-exit;
+echo json_encode(["status" => "success", "message" => "Logged out"]);
 ?>

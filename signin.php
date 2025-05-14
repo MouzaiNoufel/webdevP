@@ -1,10 +1,11 @@
 <?php
 include 'db.php';
+session_start();
+header('Content-Type: application/json');
 
 $data = json_decode(file_get_contents("php://input"), true);
 $email = $data['email'] ?? '';
 $password = $data['password'] ?? '';
-
 
 if (empty($email) || empty($password)) {
     echo json_encode(["status" => "error", "message" => "Email and password are required"]);
@@ -30,10 +31,11 @@ if (!password_verify($password, $user['password'])) {
     exit;
 }
 
-
-session_start();
-$_SESSION['user_id'] = $user['id'];
-$_SESSION['user_name'] = $user['name'];
+$_SESSION['user'] = [
+    "name" => $user['name'],
+    "email" => $user['email'],
+    "created_at" => $user['created_at'] ?? null 
+];
 
 echo json_encode(["status" => "success", "message" => "Merhba Bik , welcome!"]);
 ?>

@@ -1,0 +1,41 @@
+<!-- profile.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mon Profil - Winnie's Garden</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-page">
+  <div class="auth-container">
+    <img src="wino.avif" alt="Winnie's Logo" class="logo"/>
+    <h2 id="welcome">Bienvenue !</h2>
+    <p><strong>Nom :</strong> <span id="name"></span></p>
+    <p><strong>Email :</strong> <span id="email"></span></p>
+    <p><strong>Date d’inscription :</strong> <span id="created"></span></p>
+
+    <button onclick="logout()">Déconnexion</button>
+  </div>
+
+  <script>
+    fetch("http://localhost/winnies_garden/profile.php")
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === "success") {
+          document.getElementById("welcome").textContent = `Bienvenue, ${data.name}!`;
+          document.getElementById("name").textContent = data.name;
+          document.getElementById("email").textContent = data.email;
+          document.getElementById("created").textContent = data.created_at || 'Non disponible';
+        } else {
+          alert("Non connecté !");
+          window.location.href = "signin.html";
+        }
+      });
+
+    function logout() {
+      fetch("http://localhost/winnies_garden/logout.php")
+        .then(() => window.location.href = "signin.html");
+    }
+  </script>
+</body>
+</html>

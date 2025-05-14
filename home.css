@@ -28,6 +28,31 @@ header::after {
     background-color: black;          
 }
 
+
+ 
+.profile-button {
+  background-color: #f2b32c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px;
+  font-weight: bold;
+}
+.profile-button:hover {
+  background-color: #f2b32c;
+}
+
+
+.welcome {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4a7c3d;
+  margin: 15px;
+}
+
+
 nav {
     display: flex;
     align-items: center; 
